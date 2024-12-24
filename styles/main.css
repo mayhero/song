@@ -1,0 +1,40 @@
+/* Logo样式 */
+.flex-shrink-0 img {
+    @apply h-8 w-8 object-contain;
+    border-radius: 4px;
+}
+
+/* 导航栏样式 */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-logo img {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+}
+
+/* 拖放区域样式 */
+.border-dashed {
+    transition: all 0.2s ease;
+}
+
+.border-dashed:hover {
+    border-color: #6366f1;
+    background-color: #eef2ff;
+}
+
+/* 表单控件样式 */
+textarea, select {
+    @apply focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .w-64 {
+        width: 100%;
+    }
+} 
