@@ -1,116 +1,40 @@
-:root {
-    --primary-color: #4f46e5;
-    --primary-hover: #4338ca;
-    --secondary-color: #6b7280;
-    --secondary-hover: #4b5563;
+/* Logo样式 */
+.flex-shrink-0 img {
+    @apply h-8 w-8 object-contain;
+    border-radius: 4px;
 }
 
-/* 按钮样式 */
-.btn-primary {
-    @apply px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 
-    transition-colors duration-200 focus:outline-none focus:ring-2 
-    focus:ring-offset-2 focus:ring-indigo-500;
-    cursor: pointer;
+/* 导航栏样式 */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.btn-secondary {
-    @apply px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 
-    transition-colors duration-200 focus:outline-none focus:ring-2 
-    focus:ring-offset-2 focus:ring-gray-500;
-    cursor: pointer;
+.nav-logo img {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
 }
 
-/* 上传区域样式 */
-.upload-area {
-    @apply border-2 border-dashed border-gray-300 rounded-lg p-6 
-    hover:border-indigo-500 transition-colors duration-200 cursor-pointer
-    mt-16;
+/* 拖放区域样式 */
+.border-dashed {
+    transition: all 0.2s ease;
 }
 
-.upload-area.dragover {
-    @apply border-indigo-500 bg-indigo-50;
+.border-dashed:hover {
+    border-color: #6366f1;
+    background-color: #eef2ff;
 }
 
 /* 表单控件样式 */
-.form-checkbox {
-    @apply h-4 w-4 text-indigo-600 focus:ring-indigo-500 
-    border-gray-300 rounded;
-}
-
-.form-select {
-    @apply mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 
-    focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 
-    rounded-md;
-}
-
-.form-range {
-    @apply w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer;
-}
-
-/* 结果展示区样式 */
-.result-image {
-    @apply rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 
-    cursor-pointer;
-}
-
-/* 加载动画 */
-.loading {
-    @apply animate-spin h-5 w-5 text-white;
+textarea, select {
+    @apply focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500;
 }
 
 /* 响应式调整 */
 @media (max-width: 768px) {
-    .grid-cols-2 {
-        @apply grid-cols-1;
-    }
-} 
-
-/* 添加描述词标签样式 */
-.prompt-tag {
-    @apply px-2 py-1 rounded-md text-sm bg-gray-100 text-gray-700 
-    hover:bg-gray-200 transition-colors duration-200 cursor-pointer;
-}
-
-.prompt-tag.active {
-    @apply bg-indigo-100 text-indigo-700 hover:bg-indigo-200;
-}
-
-.prompt-tag.removable {
-    @apply pr-6 relative;
-}
-
-.prompt-tag.removable::after {
-    content: "×";
-    @apply absolute right-2 top-1/2 transform -translate-y-1/2 
-    text-gray-500 hover:text-gray-700;
-} 
-
-/* Logo样式 */
-.logo-container {
-    @apply flex items-center space-x-3 hover:opacity-90 
-    transition-opacity duration-200;
-    @apply items-center;
-}
-
-.logo-text {
-    @apply text-4xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 
-    bg-clip-text text-transparent whitespace-nowrap;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-
-.logo-image {
-    @apply h-8 w-8 transform hover:scale-105
-    transition-all duration-300;
-    border-radius: 50%;
-    object-fit: cover;
-} 
-
-/* 在小屏幕上调整字体大小 */
-@media (max-width: 640px) {
-    .logo-text {
-        @apply text-3xl;
-    }
-    .logo-image {
-        @apply h-6 w-6;
+    .w-64 {
+        width: 100%;
     }
 } 

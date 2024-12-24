@@ -4,222 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>逃跑彩虹3D打印AI教育实验室</title>
-    <!-- Tailwind CSS -->
+    <link rel="icon" type="image/x-icon" href="/Users/mdy/Desktop/网页/123 (1).ico">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 图标库 -->
-    <link href="https://cdn.jsdelivr.net/npm/@heroicons/react@2.0.18/outline.css" rel="stylesheet">
-    <!-- 动画库 -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-    <!-- 自定义样式 -->
     <link href="styles/main.css" rel="stylesheet">
-    <link rel="icon" type="image/jpeg" href="/Users/mdy/Desktop/网页/逃跑彩虹1/assets/IMG_2850.jpg">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
 </head>
 <body class="bg-gray-50">
-    <!-- 导航栏 -->
-    <nav class="bg-white shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white shadow-sm fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between h-16">
+                <!-- 左侧Logo和导航 -->
                 <div class="flex items-center">
-                    <div class="flex items-center space-x-2">
-                        <img src="/Users/mdy/Desktop/网页/逃跑彩虹1/assets/IMG_2850.jpg" alt="Logo" class="logo-image">
-                        <span class="text-5xl font-bold bg-gradient-to-r from-indigo-500 to-purple-500 
-                            bg-clip-text text-transparent">逃跑彩虹3D打印AI教育实验室</span>
+                    <div class="flex-shrink-0 flex items-center">
+                        <img class="h-8 w-auto" src="/Users/mdy/Desktop/网页/123 (1).ico" alt="Logo">
+                        <span class="ml-2 text-xl font-bold">逃跑彩虹3D打印AI教育实验室</span>
+                    </div>
+                    <div class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="#" class="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-indigo-500">
+                            3D打印
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent">
+                            AI聊天
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent">
+                            教程
+                        </a>
                     </div>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <button class="btn-primary" id="loginBtn">登录</button>
-                    <button class="btn-secondary" id="signupBtn">注册</button>
+                <!-- 右侧功能按钮 -->
+                <div class="flex items-center">
+                    <button class="bg-gray-200 p-2 rounded-full">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </button>
+                    <button class="ml-4 bg-indigo-600 text-white px-4 py-2 rounded-lg">
+                        登录
+                    </button>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- 主要内容区 -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="h-16"></div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- 左侧上传区 -->
-            <div class="space-y-6">
-                <div class="upload-area" id="uploadArea">
-                    <div class="upload-content">
-                        <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
-                        </svg>
-                        <p class="mt-2 text-center text-gray-600">
-                            拖拽图片到此处或点击上传<br>
-                            <span class="text-sm text-gray-500">支持 JPG, PNG, WEBP 格式</span>
-                        </p>
-                        <input type="file" id="fileInput" class="hidden" accept="image/*">
-                    </div>
-                    <div id="previewContainer" class="hidden">
-                        <img id="imagePreview" alt="预览图" class="max-w-full h-auto">
-                    </div>
-                </div>
-
-                <!-- 图片预处理选项 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="text-lg font-medium mb-4">图片预处理</h3>
-                    <div class="space-y-4">
-                        <label class="flex items-center">
-                            <input type="checkbox" class="form-checkbox" id="removeBg">
-                            <span class="ml-2">去除背景</span>
-                        </label>
-                        <label class="flex items-center">
-                            <input type="checkbox" class="form-checkbox" id="enhance">
-                            <span class="ml-2">图像增强</span>
-                        </label>
+    <div class="flex h-screen pt-16">
+        <!-- 左侧模型选择 -->
+        <div class="w-64 bg-white border-r">
+            <div class="p-4">
+                <button class="w-full bg-indigo-600 text-white rounded-lg p-3">
+                    新建3D打印任务
+                </button>
+                <!-- 模型列表 -->
+                <div class="mt-6 space-y-4">
+                    <div class="p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
                         <div class="flex items-center">
-                            <span class="mr-2">大小调整</span>
-                            <input type="range" class="form-range" id="sizeRange" min="256" max="1024" step="64">
-                            <span class="ml-2" id="sizeValue">512px</span>
+                            <img src="/assets/printer-logo.png" class="h-8 w-8 rounded" alt="3D">
+                            <div class="ml-3">
+                                <div class="font-medium">3D打印模型</div>
+                                <div class="text-sm text-gray-500">高质量3D模型生成</div>
+                            </div>
                         </div>
                     </div>
+                    <!-- 更多模型... -->
                 </div>
             </div>
+        </div>
 
-            <!-- 右侧生成区 -->
-            <div class="space-y-6">
-                <!-- 模型选择 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="text-lg font-medium mb-4">模型选择</h3>
-                    <select class="form-select w-full" id="modelSelect">
-                        <option value="dalle">DALL-E</option>
-                        <option value="sd">Stable Diffusion</option>
-                        <option value="mj">Midjourney</option>
-                    </select>
+        <!-- 右侧工作区 -->
+        <div class="flex-1 bg-gray-50">
+            <div class="max-w-4xl mx-auto py-8 px-4">
+                <!-- 图像上传区 -->
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+                        <div class="space-y-2">
+                            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="text-gray-600">
+                                拖拽图片到此处或点击上传
+                            </div>
+                            <input type="file" class="hidden" accept="image/*">
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 生成参数 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
+                <!-- 参数配置区 -->
+                <div class="mt-6 bg-white rounded-lg shadow-sm p-6">
                     <h3 class="text-lg font-medium mb-4">生成参数</h3>
                     <div class="space-y-4">
-                        <!-- 描述词输入 -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700">描述词</label>
-                            <div class="mt-1 flex rounded-md shadow-sm">
-                                <input type="text" 
-                                    id="promptInput"
-                                    class="form-input flex-1 block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
-                                    placeholder="输入描述词，用逗号分隔">
-                            </div>
-                            <div id="promptTags" class="flex flex-wrap gap-2 mt-2"></div>
-                        </div>
-                        <!-- 常用描述词 -->
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">常用描述词</label>
-                            <div id="commonPrompts" class="flex flex-wrap gap-2">
-                                <button class="prompt-tag">高清</button>
-                                <button class="prompt-tag">写实</button>
-                                <button class="prompt-tag">艺术感</button>
-                                <button class="prompt-tag">细节丰富</button>
-                                <button class="prompt-tag">质感</button>
-                            </div>
+                            <label class="block text-sm font-medium text-gray-700">提示词</label>
+                            <textarea class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" rows="3" 
+                                placeholder="描述你想要的图像效果..."></textarea>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700">风格选择</label>
-                            <select class="form-select w-full" id="styleSelect">
-                                <option value="realistic">写实风格</option>
-                                <option value="cartoon">卡通风格</option>
-                                <option value="artistic">艺术风格</option>
-                                <option value="cyberpunk">赛博朋克</option>
+                            <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                <option>写实风格</option>
+                                <option>动漫风格</option>
+                                <option>油画风格</option>
                             </select>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700">相似度</label>
-                            <input type="range" class="form-range w-full" id="similarityRange" min="0" max="100">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700">生成数量</label>
-                            <select class="form-select w-full" id="countSelect">
-                                <option value="1">1张</option>
-                                <option value="2">2张</option>
-                                <option value="4">4张</option>
-                            </select>
+                            <input type="range" class="w-full" min="0" max="100">
                         </div>
                     </div>
                 </div>
 
                 <!-- 生成按钮 -->
-                <div class="flex justify-center">
-                    <button class="btn-primary w-full py-3" id="generateBtn">开始生成</button>
-                </div>
-
-                <!-- 生成结果 -->
-                <div id="resultContainer" class="hidden">
-                    <div class="grid grid-cols-2 gap-4" id="resultGrid"></div>
-                    <div class="flex justify-center mt-4 space-x-4">
-                        <button class="btn-secondary" id="regenerateBtn">重新生成</button>
-                        <button class="btn-primary" id="downloadBtn">下载全部</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- 底部信息 -->
-    <footer class="bg-white mt-12 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-gray-500">© 2024 逃跑彩虹3D打印AI教育实验室. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- 自定义脚本 -->
-    <script src="scripts/config.js"></script>
-    <script src="scripts/api.js"></script>
-    <script src="scripts/upload.js"></script>
-    <script src="scripts/prompt-handler.js"></script>
-    <script src="scripts/generate.js"></script>
-    <script src="scripts/ui.js"></script>
-
-    <!-- 登录对话框 -->
-    <div id="loginModal" class="fixed inset-0 bg-gray-500 bg-opacity-75 hidden">
-        <div class="flex items-center justify-center min-h-screen">
-            <div class="bg-white p-6 rounded-lg shadow-xl w-96">
-                <h3 class="text-lg font-medium mb-4">登录</h3>
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">用户名</label>
-                        <input type="text" id="loginUsername" class="form-input w-full mt-1">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">密码</label>
-                        <input type="password" id="loginPassword" class="form-input w-full mt-1">
-                    </div>
-                    <div class="flex justify-end space-x-2">
-                        <button class="btn-secondary" id="cancelLogin">取消</button>
-                        <button class="btn-primary" id="confirmLogin">登录</button>
-                    </div>
+                <div class="mt-6 flex justify-end">
+                    <button class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700">
+                        开始生成
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 注册对话框 -->
-    <div id="signupModal" class="fixed inset-0 bg-gray-500 bg-opacity-75 hidden">
-        <div class="flex items-center justify-center min-h-screen">
-            <div class="bg-white p-6 rounded-lg shadow-xl w-96">
-                <h3 class="text-lg font-medium mb-4">注册</h3>
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">用户名</label>
-                        <input type="text" id="signupUsername" class="form-input w-full mt-1">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">密码</label>
-                        <input type="password" id="signupPassword" class="form-input w-full mt-1">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">确认密码</label>
-                        <input type="password" id="confirmPassword" class="form-input w-full mt-1">
-                    </div>
-                    <div class="flex justify-end space-x-2">
-                        <button class="btn-secondary" id="cancelSignup">取消</button>
-                        <button class="btn-primary" id="confirmSignup">注册</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <script src="scripts/app.js"></script>
 </body>
 </html> 
